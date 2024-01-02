@@ -4,7 +4,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
-import { loginUserAction } from "../../Redux/auth.action";
+import { loginUserAction } from "../../Redux/Auth/auth.action";
 import { useNavigate } from "react-router-dom";
 
 const initialValues = { email: "", password: "" };

@@ -6,7 +6,7 @@ import { Message } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useEffect } from 'react';
-import { getProfileAction } from './Redux/auth.action';
+import { getProfileAction } from './Redux/Auth/auth.action';
 
 function App() {
   const {auth}= useSelector(store=>store);
@@ -15,7 +15,9 @@ function App() {
 
   useEffect(()=>{
     dispatch(getProfileAction(jwt))
+    
   },[jwt])
+  // console.log("pppp--- ",auth.user);
 
   return (
     <div  className=''>

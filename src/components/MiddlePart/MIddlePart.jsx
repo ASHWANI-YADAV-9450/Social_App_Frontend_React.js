@@ -1,18 +1,38 @@
 import { Avatar, Card, IconButton } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import StoryCircle from "./StoryCircle";
 import ImageIcon from "@mui/icons-material/Image";
 import VideocamIcon from '@mui/icons-material/Videocam';
 import ArticleIcon from '@mui/icons-material/Article';
 import PostCard from "../Post/PostCard";
+import CreatePostModal from "../CreatePost/CreatePostModal";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllPostAction } from "../../Redux/Post/post.action";
 
 const story = [11, 1, 1, 1, 1];
 const posts=[1,1,1,1,1];
+
 const MIddlePart = () => {
+  const dispatch=useDispatch();
+  const {post}= useSelector(store=>store);
+
+  console.log("posts store ",post);
+  const [openCreatePostModal, setOpenCreateModal]= useState(false);
+
+  const handleCloseCreatePostModal=()=>setOpenCreateModal(false);
+
   const handleOpenCreatePostModal = () => {
-    console.log("opne post modal");
+    setOpenCreateModal(true);
+    console.log("opne post modal...",openCreatePostModal);
   };
+
+
+useEffect(()=>{
+  
+  dispatch(getAllPostAction())
+},[post.newComment])
+
   return (
     <div className="px-20">
       <section className=" flex  items-center p-5 rounded-b-md">
@@ -36,6 +56,7 @@ const MIddlePart = () => {
         <div className="flex justify-between">
           <Avatar />
           <input
+          onClick={handleOpenCreatePostModal}
             readOnly
             className="outline-none w-[90%]  rounded-full px-5 bg-transparent border-[#3b4054] border"
             type="text"
@@ -67,11 +88,14 @@ const MIddlePart = () => {
           <span>Write Article</span>
         </div>
       </div>
-      </Card>
+      </Card> 
       <div className="mt-5 space-y-5">4
-{posts.map((item)=><PostCard />)}
-      <PostCard />
+{post.posts.map((item)=><PostCard item={item} />)}
+     
 
+      </div>
+      <div>
+        <CreatePostModal handleClose={handleCloseCreatePostModal} open={openCreatePostModal} />
       </div>
     </div>
   );
