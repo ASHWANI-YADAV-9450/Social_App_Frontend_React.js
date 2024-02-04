@@ -13,12 +13,12 @@ const tabs = [
   { value: "repost", name: "Repost" },
 ];
 
-const posts = [1, 1, 1, 1];
+// const posts = [1, 1, 1, 1];
 const reels = [1, 1, 1, 1];
 const savedPost = [1, 1, 1];
 
 const Profile = () => {
-  
+  const {post}= useSelector(store=>store);
   const { id } = useParams();
 
 
@@ -66,7 +66,7 @@ const Profile = () => {
         <div className="p-5">
           <div>
             <h1 className="py-1 font-bold text-xl">{auth.user?.firstName +" "+auth.user?.lastName}</h1>
-            <p>@{auth.user?.firstName.toLowerCase() +"_"+auth.user?.lastName}</p>
+            <p>@{auth.user?.firstName.toLowerCase() +"_"+auth.user?.lastName.toLowerCase()}</p>
           </div>
 
           <div className="flex gap-5 items-center py-3">
@@ -93,10 +93,10 @@ const Profile = () => {
           </Box>
           <div className="flex justify-center">
             {value === "post" ? (
-              <div className="space-y-5 w-[70%] my-10">
-                {posts.map((item) => (
+               <div className="space-y-5 w-[70%] my-10">
+                {post.posts.map((item) => (
                   <div className="border border-slate-100 rounded-md">
-                    <PostCard />
+                    <PostCard item={item} />
                   </div>
                 ))}
               </div>

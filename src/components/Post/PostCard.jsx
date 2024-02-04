@@ -43,7 +43,7 @@ const PostCard = ({ item }) => {
   const handleLikePost=()=>{
     dispatch(likePostAction(item.id))
   }
-
+console.log("YYY");
   return (
     <Card className="">
       <CardHeader

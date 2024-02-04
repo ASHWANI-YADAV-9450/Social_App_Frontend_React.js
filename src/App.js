@@ -2,11 +2,12 @@ import './App.css';
 import Authentication from './pages/Authentication/Authentication';
 import HomePage from "../src/pages/HomePage/HomePage"
 import { Route, Routes } from 'react-router-dom';
-import { Message } from '@mui/icons-material';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useEffect } from 'react';
 import { getProfileAction } from './Redux/Auth/auth.action';
+import Message from './pages/Message/Message';
 
 function App() {
   const {auth}= useSelector(store=>store);

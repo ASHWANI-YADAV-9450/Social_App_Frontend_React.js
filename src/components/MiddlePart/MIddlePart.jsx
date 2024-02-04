@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllPostAction } from "../../Redux/Post/post.action";
 
 const story = [11, 1, 1, 1, 1];
-const posts=[1,1,1,1,1];
+// const posts=[1,1,1,1,1];
 
 const MIddlePart = () => {
   const dispatch=useDispatch();

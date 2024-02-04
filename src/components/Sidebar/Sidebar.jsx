@@ -18,11 +18,27 @@ const Sidebar = () => {
   };
 
   const handleNaviagte=(item)=>{
-    if(item.title==="Profile"){
+    if(item.title=="Profile"){
       navigate(`/profile/${auth.user?.id}`)
     }
-  }
 
+    else if(item.title=="Home"){
+      navigate(`/`)
+    }
+
+    else if(item.title=="Reels"){
+      navigate(`/reels`)
+    }
+
+    else if(item.title=="Create_Reels"){
+      navigate(`/create-reels`)
+    }
+
+    // else if(item.title=="Message"){
+    //   navigate(`/message`)
+    // }
+  }
+ 
   return (
     <Card className="card h-screen flex flex-col justify-between py-5">
       <div className="space-y-8 pl-5">

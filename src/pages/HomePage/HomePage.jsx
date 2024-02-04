@@ -10,6 +10,7 @@ import HomeRight from "../../components/HomeRight/HomeRight";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfileAction } from "../../Redux/Auth/auth.action";
 import { store } from "../../Redux/store";
+import Message from "../Message/Message";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ const HomePage = () => {
           <Routes>
             <Route path="/" element={<MIddlePart />} />
             <Route path="/reels" element={<Reels />} />
+            <Route path="/message" element={<Message />} />
             <Route path="/create-reels" element={<CreateReelsForm />} />
             <Route path="/profile/:id" element={<Profile />} />
           </Routes>

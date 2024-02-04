@@ -20,7 +20,7 @@ export const navigationMenu=[
         path:"/reels"
     },
     {
-        title:"Create Reels",
+        title:"Create_Reels",
         icon:<ControlPointIcon/>,
         path:"/create-reels"
     },

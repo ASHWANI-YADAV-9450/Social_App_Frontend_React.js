@@ -26,7 +26,7 @@ export const registerUserAction = (loginData) => async (dispatch) => {
   dispatch({ type: LOGIN_REQUEST });
   try {
     const { data } = await axios.post(
-      `${API_BASE_URL}/auth/sigup`,
+      `${API_BASE_URL}/auth/signup`,
       loginData.data
     );
 
