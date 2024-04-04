@@ -34,9 +34,9 @@ const Sidebar = () => {
       navigate(`/create-reels`)
     }
 
-    // else if(item.title=="Message"){
-    //   navigate(`/message`)
-    // }
+    else if(item.title=="Message"){
+      navigate(`/message`)
+    }
   }
  
   return (
